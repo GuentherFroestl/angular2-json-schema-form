@@ -27,47 +27,16 @@
   "bugs": {
     "url": "https://github.com/dschnelldavis/angular2-json-schema-form/issues"
   },
-  "main": "./bundles/angular2-json-schema-form.umd.js",
-  "module": "./angular2-json-schema-form.es5.js",
-  "es2015": "./angular2-json-schema-form.js",
-  "typings": "./angular2-json-schema-form.d.ts",
-  "engines": {
-    "node": ">= 6.9.0",
-    "npm": ">= 3.0.0"
+  "main": "index.ts",
+  "typings": "index",
+  "circular": {
+    "selectorPrefix": "fnt"
   },
   "scripts": {
-    "ng": "ng",
-    "serve": "ng serve",
-    "start": "ng serve",
-    "test": "ng test",
-    "lint": "ng lint",
+    "lint": "cl lint",
     "docs": "typedoc --options typedoc.json lib/src/json-schema-form.module.ts",
-    "clean": "rimraf out-ngc dist/*",
-    "prebuild": "npm run clean",
-    "build": "node build.js",
-    "postbuild": "rimraf out-ngc",
-    "prepublish": "npm run build",
-    "publish": "cd dist && npm publish",
-    "preng-build": "rimraf dist/*",
-    "ng-build": "ng build",
-    "predeploy": "npm run ng-build",
-    "deploy": "firebase deploy",
-    "old-build-demo": "tsc -p src/demo/",
-    "old-build-demo:watch": "tsc -p src/demo/ -w",
-    "old-prestart": "npm run build-demo",
-    "old-build-test": "tsc -p src/lib/tsconfig.spec.json",
-    "old-build-test:watch": "tsc -p src/lib/tsconfig.spec.json -w",
-    "old-pretest": "npm run build-test",
-    "old-preintegration": "npm run build && cd integration && npm run clean && npm install",
-    "old-integration": "npm run integration:aot && npm run integration:jit",
-    "old-integration:jit": "cd integration && npm run e2e",
-    "old-integration:aot": "cd integration && npm run e2e:aot",
-    "old-start": "concurrently \"npm run build-demo:watch\" \"npm run serve\"",
-    "old-serve": "lite-server -c=bs-config.json",
-    "old-test": "concurrently \"npm run build-test:watch\" \"karma start karma.conf.js\"",
-    "old-pretest:once": "npm run build-test",
-    "old-test:once": "karma start karma.conf.js --single-run",
-    "old-lint": "tslint ./src/**/*.ts -t verbose"
+    "build:cl": "cl build --src ./src/lib",
+    "build:app-main": "cl build --src ./src/lib --target ../app-main"
   },
   "dependencies": {
     "ajv": "5.x",
@@ -91,7 +60,6 @@
     "@angular/flex-layout": "^2.0.0-beta.8",
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
-    "@angular/material": "^2.0.0-beta.7",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",

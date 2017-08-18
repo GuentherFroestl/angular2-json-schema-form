@@ -63,7 +63,7 @@ export class JsonSchemaFormService {
       // 'auto' = only if layout is undefined (form is built from schema alone)
     debug: false, // Show debugging output?
     fieldsRequired: false, // Are there any required fields in the form?
-    framework: 'material-design', // The framework to load
+    framework: 'bootstrap-3', // The framework to load
     widgets: {}, // Any custom widgets to load
     loadExternalAssets: false, // Load external css and JavaScript for framework?
     pristine: { errors: true, success: true },
